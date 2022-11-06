@@ -1,9 +1,0 @@
-# ninja log v5
-1	194	6893541086367747	01_FirstProject_autogen/timestamp	8208f29d1e2a7a44
-1	194	6893541086367747	01_FirstProject_autogen/mocs_compilation.cpp	8208f29d1e2a7a44
-1	194	6893541086367747	E:/Qt/Basis/build-01_FirstProject-Desktop_Qt_5_15_2_MSVC2019_32bit-Debug/01_FirstProject_autogen/timestamp	8208f29d1e2a7a44
-1	194	6893541086367747	E:/Qt/Basis/build-01_FirstProject-Desktop_Qt_5_15_2_MSVC2019_32bit-Debug/01_FirstProject_autogen/mocs_compilation.cpp	8208f29d1e2a7a44
-200	1241	6893541097102733	CMakeFiles/01_FirstProject.dir/myvidget.cpp.obj	79346240402421d2
-197	1243	6893541097097735	CMakeFiles/01_FirstProject.dir/01_FirstProject_autogen/mocs_compilation.cpp.obj	11af7870a7887c82
-195	1244	6893541097097735	CMakeFiles/01_FirstProject.dir/main.cpp.obj	8cde91876b672ee
-1244	1633	6893541100777708	01_FirstProject.exe	d70dbf6c2c3e08d6
