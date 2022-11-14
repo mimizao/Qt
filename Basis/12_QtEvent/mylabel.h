@@ -20,7 +20,8 @@ class MyLabel : public QLabel {
     // 鼠标移动,注意这里需要鼠标按下了之后在移动才行
     virtual void mouseMoveEvent(QMouseEvent *ev);
 
-
+    // 通过event时间分发器拦截鼠标按下事件
+    bool event(QEvent *e);
 
   signals:
 

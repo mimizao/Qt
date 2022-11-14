@@ -7,8 +7,6 @@ MyLabel::MyLabel(QWidget *parent)
     setMouseTracking(true);
 }
 
-
-
 // 鼠标进入
 void MyLabel::enterEvent(QEvent *event) {
     qDebug() << "enter";
@@ -51,4 +49,16 @@ void MyLabel:: mouseMoveEvent(QMouseEvent *ev) {
     // 如果设置了鼠标追踪就不需要按下才能生效
     QString str = QString("move x = %1, y = %2").arg(ev->x()).arg(ev->y());
     qDebug() << str;
+}
+
+// 如果是ture代表用户处理这个事件，不向下分发
+bool MyLabel::event(QEvent *e) {
+    if (e->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *ev = static_cast<QMouseEvent *>(e); // 静态类型转换
+        QString str = QString("event: global x = %1, global y = %2").arg(ev->globalX()).arg(ev->globalY());
+        qDebug() << str;
+        return true;
+    }
+    // 其他事件，交给父类处理，默认处理
+    return QLabel::event(e);
 }

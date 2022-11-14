@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 #include <mylabel.h>
 
@@ -20,6 +22,10 @@ class Ui_Widget
 {
 public:
     MyLabel *label;
+    QLabel *label_1;
+    QLabel *label_2;
+    QLabel *label_3;
+    QPushButton *btn;
 
     void setupUi(QWidget *Widget)
     {
@@ -30,6 +36,22 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(100, 130, 241, 61));
         label->setFrameShape(QFrame::Box);
+        label_1 = new QLabel(Widget);
+        label_1->setObjectName(QString::fromUtf8("label_1"));
+        label_1->setGeometry(QRect(100, 220, 241, 61));
+        label_1->setFrameShape(QFrame::Panel);
+        label_2 = new QLabel(Widget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(100, 310, 241, 61));
+        label_2->setFrameShape(QFrame::WinPanel);
+        label_3 = new QLabel(Widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(100, 410, 241, 51));
+        label_3->setFrameShape(QFrame::Box);
+        label_3->setFrameShadow(QFrame::Raised);
+        btn = new QPushButton(Widget);
+        btn->setObjectName(QString::fromUtf8("btn"));
+        btn->setGeometry(QRect(410, 430, 80, 24));
 
         retranslateUi(Widget);
 
@@ -40,6 +62,9 @@ public:
     {
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
         label->setText(QString());
+        label_2->setText(QString());
+        label_3->setText(QString());
+        btn->setText(QCoreApplication::translate("Widget", "pause", nullptr));
     } // retranslateUi
 
 };
