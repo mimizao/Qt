@@ -2,6 +2,8 @@
 #include "ui_widget.h"
 #include <QTimer>
 #include <QPushButton>
+#include <QDebug>
+#include <QMouseEvent>
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget) {
@@ -24,6 +26,26 @@ Widget::Widget(QWidget *parent)
     connect(ui->btn, &QPushButton::clicked, this, [ = ]() {
         timer->stop();
     });
+
+
+    // 事件过滤器
+    // 1.给label安装事件过滤器
+    ui->label->installEventFilter(this);
+
+}
+
+// 2.重写eventFilter事件
+bool Widget::eventFilter(QObject *obj, QEvent *e) {
+    if (obj == ui->label) {
+        if (e->type() == QEvent::MouseButtonPress) {
+            QMouseEvent *ev = static_cast<QMouseEvent *>(e); // 静态类型转换
+            QString str = QString("filter: global x = %1, global y = %2").arg(ev->globalX()).arg(ev->globalY());
+            qDebug() << str;
+            return true;
+        }
+    }
+    // 其他的默认处理
+    return QWidget::eventFilter(obj, e);
 }
 
 void Widget::timerEvent(QTimerEvent *ev) {

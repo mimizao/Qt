@@ -21,6 +21,10 @@ class Widget : public QWidget {
 
     int id1;
     int id2;
+
+    // 重写事件过滤器的事件
+    bool eventFilter(QObject *obj, QEvent *ev);
+
   private:
     Ui::Widget *ui;
 };
